@@ -1,5 +1,6 @@
-MIDI-to-Keypress
+ez-piano-keypress-midi
 ================
+(thxgj piano keyboard layout)
 
 Takes MIDI events and turns them into keypresses.  This fork is modified for full typing based on [Anna Feit's paper](http://annafeit.de/pianotext/). 
 
