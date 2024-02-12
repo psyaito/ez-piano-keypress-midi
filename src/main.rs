@@ -151,38 +151,10 @@ fn generate_old_mappings(mappings: &mut NoteMappings) {
         't', 'h', 'x', 'g', 'j', 'e', 'z', 'p', 'k', 'f', 'y', 'm', 'd', 'w', 'a', 'u', 'o', 'r', 'n', 'e', 'c', 't', 'l', 'i', 's', 'g', 'h', 'v', 'b', 'd', 'q', 'a', 'm', 'e', 'u', 'o', 'r', ' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
     ];
 
-    for (key_idx, key) in keys.iter().enumerate() {
-        let base = MidiNote::C3.index();
-        let mut note_mapping_lo = NoteMapping::new(
-            MidiNote::new(key_idx as u8 + base).expect("Invalid note index"),
-            0,
-            None,
-        );
-        let mut note_mapping_mid = NoteMapping::new(
-            MidiNote::new(key_idx as u8 + base + 12).expect("Invalid note index"),
-            0,
-            None,
-        );
-        let mut note_mapping_hi = NoteMapping::new(
-            MidiNote::new(key_idx as u8 + base + 24).expect("Invalid note index"),
-            0,
-            None,
-        );
-
-        note_mapping_lo.on =
-            NoteMapping::down_event(*key, Some(KbdKey::Control), Some(MOD_DELAY_MS));
-        note_mapping_lo.off =
-            NoteMapping::up_event(*key, Some(KbdKey::Control), Some(MOD_DELAY_MS));
-
-        note_mapping_mid.on = NoteMapping::down_event(*key, None, None);
-        note_mapping_mid.off = NoteMapping::up_event(*key, None, None);
-
-        note_mapping_hi.on = NoteMapping::down_event(*key, Some(KbdKey::Shift), Some(MOD_DELAY_MS));
-        note_mapping_hi.off = NoteMapping::up_event(*key, Some(KbdKey::Shift), Some(MOD_DELAY_MS));
-
-        mappings.add(note_mapping_lo);
-        mappings.add(note_mapping_mid);
-        mappings.add(note_mapping_hi);
+    let mut mappings = vec![];
+    for (i, &key) in keys.iter().enumerate() {
+        let note = MidiNote::new(i as u8 + BASE_NOTE);
+        mappings.push(NoteMapping::new(note, 0, None));
     }
 
     // Add pad buttons on the top of my keyboard, which are on channel 9.
