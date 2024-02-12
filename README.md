@@ -32,7 +32,7 @@ Currently, there is no external configuration.  The program will search for a de
 For channel 0 (i.e. the main keys), it will translate keys into the following keyboard piano:
 
 ````
- h  g     z  k  y      w  u     n  c  l     g  v       q m u     []   2     5  7  9 
+ h  g     z  k  y      w  u     n  c  l     g  v       q m u    [] 2     5  7  9 
 t  x  j  e  p  f  m  d  a  o  r  e  t  i  s  h  b  d  a  e  o  r  1  3  4  6  8  0
 ````
 
