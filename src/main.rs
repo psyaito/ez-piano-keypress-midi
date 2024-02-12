@@ -148,7 +148,7 @@ fn midi_callback(_timestamp_us: u64, raw_message: &[u8], app_state: &AppState) {
 
 fn generate_old_mappings(mappings: &mut NoteMappings) {
     let keys = vec![
-        'q', '2', 'w', '3', 'e', 'r', '5', 't', '6', 'y', '7', 'u', 'i',
+        't', 'h', 'x', 'g', 'j', 'e', 'z', 'p', 'k', 'f', 'y', 'm', 'd', 'w', 'a', 'u', 'o', 'r', 'n', 'e', 'c', 't', 'l', 'i', 's', 'g', 'h', 'v', 'b', 'd', 'q', 'a', 'm', 'e', 'u', 'o', 'r', ' ', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
     ];
 
     for (key_idx, key) in keys.iter().enumerate() {
